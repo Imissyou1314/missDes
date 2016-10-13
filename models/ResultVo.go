@@ -20,7 +20,7 @@ type ResultMsg struct {
 	ResultData interface{}
 }
 
-/**
+/*
  *  获取Result对象
  *  @param: isSucess 是否获取数据成功
  *  @param: ResultError 获取出现错误的错误数据
@@ -41,7 +41,7 @@ func GetResultMsg(isSuccess bool,
 	return
 }
 
-/**
+/*
  *  获取Json数据的交互对象
  *  @result:    []byte  转换候的对象
  *  @result:     error  错误信息

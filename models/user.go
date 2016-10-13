@@ -1,86 +1,47 @@
 package models
 
-import (
-	"errors"
-	"strconv"
-	"time"
-)
-
-var (
-	UserList map[string]*User
-)
-
-func init() {
-	UserList = make(map[string]*User)
-	u := User{"user_11111", "astaxie", "11111", Profile{"male", 20, "Singapore", "astaxie@gmail.com"}}
-	UserList["user_11111"] = &u
-}
-
+//  用户信息表
 type User struct {
-	Id       string
+	Id int64
+	// 用户Id
+	UserId int64
+	//用户销售Id
+	UserSaleLogId string
+	//用户名字
 	Username string
+	//用户密码
 	Password string
-	Profile  Profile
+	//用户当前状态
+	Status bool
 }
 
-type Profile struct {
-	Gender  string
-	Age     int
-	Address string
-	Email   string
+//	获取指定用户
+func GetUser(user User) {
+	GetInstance(user)
 }
 
-func AddUser(u User) string {
-	u.Id = "user_" + strconv.FormatInt(time.Now().UnixNano(), 10)
-	UserList[u.Id] = &u
-	return u.Id
+//	获取所有用户
+func GetAllUsers() []User {
+	var users []User
+	GetQueryByTableName("user").All(users)
+	Logger.Println("<=== Users: ===>", users)
+	return users
 }
 
-func GetUser(uid string) (u *User, err error) {
-	if u, ok := UserList[uid]; ok {
-		return u, nil
-	}
-	return nil, errors.New("User not exists")
+//	更新用户
+func UpdateUser(user User) {
+	Logger.Println("<=== user ===>", user)
+	UpdateInstace(user)
 }
 
-func GetAllUsers() map[string]*User {
-	return UserList
+//	删除指定用户
+func DeleteUser(user User) {
+	Logger.Println("<=== user ===>", user)
+	DeleteInstace(user)
 }
 
-func UpdateUser(uid string, uu *User) (a *User, err error) {
-	if u, ok := UserList[uid]; ok {
-		if uu.Username != "" {
-			u.Username = uu.Username
-		}
-		if uu.Password != "" {
-			u.Password = uu.Password
-		}
-		if uu.Profile.Age != 0 {
-			u.Profile.Age = uu.Profile.Age
-		}
-		if uu.Profile.Address != "" {
-			u.Profile.Address = uu.Profile.Address
-		}
-		if uu.Profile.Gender != "" {
-			u.Profile.Gender = uu.Profile.Gender
-		}
-		if uu.Profile.Email != "" {
-			u.Profile.Email = uu.Profile.Email
-		}
-		return u, nil
-	}
-	return nil, errors.New("User Not Exist")
-}
-
-func Login(username, password string) bool {
-	for _, u := range UserList {
-		if u.Username == username && u.Password == password {
-			return true
-		}
-	}
-	return false
-}
-
-func DeleteUser(uid string) {
-	delete(UserList, uid)
+//	添加指定用户
+func InsertUser(user User) {
+	Logger.Println("<=== user ===>", user)
+	InsertInstance(user)
 }

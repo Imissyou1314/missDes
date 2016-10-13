@@ -28,6 +28,14 @@ func ToJSON(jsonData interface{}) (b []byte, err error) {
 	return nil, nil
 }
 
+//  ToJSONStr 将字符串转成jsonStr
+// 对象转Json字符
+// jsonData
+func ToJSONStr(jsonData interface{}) (str string, err error) {
+	b, err := ToJSON(jsonData)
+	return string(b), err
+}
+
 //  JSONToStruct 数据转换
 //  json数据转成对象
 //  jsonData

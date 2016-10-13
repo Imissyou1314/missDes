@@ -11,6 +11,7 @@ var (
 )
 
 type Object struct {
+	Id         int64
 	ObjectId   string
 	Score      int64
 	PlayerName string
@@ -18,8 +19,8 @@ type Object struct {
 
 func init() {
 	Objects = make(map[string]*Object)
-	Objects["hjkhsbnmn123"] = &Object{"hjkhsbnmn123", 100, "astaxie"}
-	Objects["mjjkxsxsaa23"] = &Object{"mjjkxsxsaa23", 101, "someone"}
+	Objects["hjkhsbnmn123"] = &Object{1, "hjkhsbnmn123", 100, "astaxie"}
+	Objects["mjjkxsxsaa23"] = &Object{2, "mjjkxsxsaa23", 101, "someone"}
 }
 
 func AddOne(object Object) (ObjectId string) {
@@ -50,4 +51,3 @@ func Update(ObjectId string, Score int64) (err error) {
 func Delete(ObjectId string) {
 	delete(Objects, ObjectId)
 }
-
