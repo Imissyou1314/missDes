@@ -4,11 +4,10 @@ import (
 	"missDes/utils"
 )
 
-/**
+/*
  *  交互的数据格式
  * 定了了交互的数据格式
  */
-
 type ResultMsg struct {
 	//获取信息
 	ResultInfo string
@@ -21,7 +20,8 @@ type ResultMsg struct {
 }
 
 /*
- *  获取Result对象
+ * GetResultMsg
+ * 获取Result对象
  *  @param: isSucess 是否获取数据成功
  *  @param: ResultError 获取出现错误的错误数据
  *  @param: ResultInfo  获取信息的接送
@@ -42,11 +42,12 @@ func GetResultMsg(isSuccess bool,
 }
 
 /*
- *  获取Json数据的交互对象
+ * GetReusltJSONStr
+ * 获取Json数据的交互对象
  *  @result:    []byte  转换候的对象
  *  @result:     error  错误信息
  */
-func GetReusltJsonStr(isSuccess bool,
+func GetReusltJSONStr(isSuccess bool,
 	ResultError string,
 	ResultInfo string,
 	ResultData interface{}) ([]byte, error) {

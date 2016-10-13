@@ -35,11 +35,17 @@ func (u *UserController) CreateUser() {
 }
 
 func (u *UserController) GetAllUser() {
-	var users []modeks.User
+	var users []models.User
 	users = models.GetAllUsers()
 	u.Data["json"], _ = utils.ToJSONStr(users)
 }
 
+// @Title UpUser
+// @Description Update users
+// @Param	body		body 	models.User	true		"body for user content"
+// @Success 200 {int} models.User.Id
+// @Failure 403 body is empty
+// @router / [post]
 func (u *UserController) UpUser() {
 	inputs := u.Ctx.Input
 	var user models.User

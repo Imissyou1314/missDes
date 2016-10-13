@@ -6,15 +6,16 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
+// 记录日志的logger
 var logger = logs.GetLogger()
 
-//  构造函数，初始化Logger
+// 构造函数，初始化Logger
 func init() {
 	fmt.Println("<==== json 构造 函数 ======>")
 	logger.Println("配置json Utils 初始化....")
 }
 
-//  ToJSON 将字符串转成json
+// ToJSON 将字符串转成json
 // 对象转Json字符串
 // jsonData
 func ToJSON(jsonData interface{}) (b []byte, err error) {
@@ -28,7 +29,7 @@ func ToJSON(jsonData interface{}) (b []byte, err error) {
 	return nil, nil
 }
 
-//  ToJSONStr 将字符串转成jsonStr
+// ToJSONStr 将字符串转成jsonStr
 // 对象转Json字符
 // jsonData
 func ToJSONStr(jsonData interface{}) (str string, err error) {
@@ -36,7 +37,7 @@ func ToJSONStr(jsonData interface{}) (str string, err error) {
 	return string(b), err
 }
 
-//  JSONToStruct 数据转换
+// JSONToStruct 数据转换
 //  json数据转成对象
 //  jsonData
 //  instance

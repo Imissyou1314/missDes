@@ -1,6 +1,6 @@
 package models
 
-//  Address models
+// Address models
 //  记录地区的销售记录
 type Address struct {
 	Id int64 `orm:"auto"`
@@ -20,12 +20,12 @@ type Address struct {
 	AddressSaleDes string
 }
 
-//	获取特定地址
+// 获取特定地址
 func (a Address) GetAddress(address Address) {
 	GetInstance(address)
 }
 
-//	获取所以得地址
+// 获取所以得地址
 func GetAllAddress() []*Address {
 	var addresss []*Address
 	GetQueryByTableName("address").All(addresss)
@@ -36,17 +36,17 @@ func GetAllAddress() []*Address {
 	}
 }
 
-//	删除指定地址
+// 删除指定地址
 func DeleteAddress(address Address) {
 	DeleteInstace(address)
 }
 
-//	插入指点地址
+// 插入指点地址
 func InsertAddress(address Address) {
 	InsertInstance(address)
 }
 
-//	更新指定地址
+// 更新指定地址
 func UpdataAddress(address Address) {
 	UpdateInstace(address)
 }

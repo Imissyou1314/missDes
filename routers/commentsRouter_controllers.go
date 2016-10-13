@@ -43,51 +43,16 @@ func init() {
 
 	beego.GlobalControllerRouter["missDes/controllers:UserController"] = append(beego.GlobalControllerRouter["missDes/controllers:UserController"],
 		beego.ControllerComments{
-			Method: "Post",
+			Method: "CreateUser",
 			Router: `/`,
 			AllowHTTPMethods: []string{"post"},
 			Params: nil})
 
 	beego.GlobalControllerRouter["missDes/controllers:UserController"] = append(beego.GlobalControllerRouter["missDes/controllers:UserController"],
 		beego.ControllerComments{
-			Method: "GetAll",
+			Method: "UpUser",
 			Router: `/`,
-			AllowHTTPMethods: []string{"get"},
-			Params: nil})
-
-	beego.GlobalControllerRouter["missDes/controllers:UserController"] = append(beego.GlobalControllerRouter["missDes/controllers:UserController"],
-		beego.ControllerComments{
-			Method: "Get",
-			Router: `/:uid`,
-			AllowHTTPMethods: []string{"get"},
-			Params: nil})
-
-	beego.GlobalControllerRouter["missDes/controllers:UserController"] = append(beego.GlobalControllerRouter["missDes/controllers:UserController"],
-		beego.ControllerComments{
-			Method: "Put",
-			Router: `/:uid`,
-			AllowHTTPMethods: []string{"put"},
-			Params: nil})
-
-	beego.GlobalControllerRouter["missDes/controllers:UserController"] = append(beego.GlobalControllerRouter["missDes/controllers:UserController"],
-		beego.ControllerComments{
-			Method: "Delete",
-			Router: `/:uid`,
-			AllowHTTPMethods: []string{"delete"},
-			Params: nil})
-
-	beego.GlobalControllerRouter["missDes/controllers:UserController"] = append(beego.GlobalControllerRouter["missDes/controllers:UserController"],
-		beego.ControllerComments{
-			Method: "Login",
-			Router: `/login`,
-			AllowHTTPMethods: []string{"get"},
-			Params: nil})
-
-	beego.GlobalControllerRouter["missDes/controllers:UserController"] = append(beego.GlobalControllerRouter["missDes/controllers:UserController"],
-		beego.ControllerComments{
-			Method: "Logout",
-			Router: `/logout`,
-			AllowHTTPMethods: []string{"get"},
+			AllowHTTPMethods: []string{"post"},
 			Params: nil})
 
 }
